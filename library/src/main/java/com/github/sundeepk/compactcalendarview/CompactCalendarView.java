@@ -328,11 +328,11 @@ public class CompactCalendarView extends View {
         invalidate();
 
         // prevent parent container from processing ACTION_MOVE events (scroll inside ViewPager issue #82)
-//        if (event.getAction() == MotionEvent.ACTION_MOVE) {
-//            getParent().requestDisallowInterceptTouchEvent(true);
-//        } else if (event.getAction() == MotionEvent.ACTION_CANCEL) {
-//            getParent().requestDisallowInterceptTouchEvent(false);
-//        }
+        if (event.getAction() == MotionEvent.ACTION_MOVE) {
+            getParent().requestDisallowInterceptTouchEvent(true);
+        } else if (event.getAction() == MotionEvent.ACTION_CANCEL) {
+            getParent().requestDisallowInterceptTouchEvent(false);
+        }
 
         // always allow gestureDetector to detect onSingleTap and scroll events
         return gestureDetector.onTouchEvent(event);
